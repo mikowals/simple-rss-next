@@ -4,8 +4,8 @@ import { BatchHttpLink } from "apollo-link-batch-http";
 export const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new BatchHttpLink({
-    uri: 'http://localhost:3000/graphql',
-    credentials: 'same-origin',
+    uri: 'https://worker-rss.mikowals.workers.dev/graphql',
+    credentials: 'include',
     batchInterval: 5}),
   connectToDevTools: true
 });

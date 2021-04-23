@@ -20,7 +20,7 @@ const renderFeed = (feed) => <Feed {...feed} key={feed._id} />;
 export const FeedsPage = () => {
   const self = this;
   const {loading, error, data} = useQuery(
-    USER_QUERY,{
+    FEEDS_QUERY,{
       variables: {userId: "nullUser"},
       fetchPolicy: "cache-and-network",
       nextFetchPolicy: "cache-first"
@@ -34,7 +34,7 @@ export const FeedsPage = () => {
   if (error) { console.log(error) }
   let feedDiv = <div />;
   if (data) {
-    const sortedFeeds = orderBy(data.user.feeds, [feed => feed.title.toLowerCase()]);
+    const sortedFeeds = orderBy(data.feeds, [feed => feed.title.toLowerCase()]);
     feedDiv = <div>{sortedFeeds.map(renderFeed)}</div>;
   }
   return (
@@ -50,7 +50,7 @@ export const FeedsPage = () => {
   );
 };
 
-const Feed = memo(({_id, url, title, last_date, count}) => {
+const Feed = memo(({_id, url, title, date, count}) => {
   const self = this;
   return <div className="row feedList">
            <h6 className="col-6 pull-left">
@@ -61,7 +61,7 @@ const Feed = memo(({_id, url, title, last_date, count}) => {
              <FeedCount count={count}/>
            </h6>
            <h6 className="lastDate time col-4 text-right pull-right">
-             <TimeAgoContainer date={last_date} />
+             <TimeAgoContainer date={date} />
            </h6>
          </div>;
 });
@@ -69,7 +69,7 @@ const Feed = memo(({_id, url, title, last_date, count}) => {
 Feed.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
-  last_date: PropTypes.number,
+  date: PropTypes.number,
   _id: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired
 };
@@ -144,7 +144,7 @@ const AddFeed = memo(() => {
                   _id
                   title
                   url
-                  last_date
+                  date
                   count
                 }
               `
@@ -182,7 +182,7 @@ const AddFeed = memo(() => {
           _id: "abcde",
           title: "adding...",
           url: url,
-          last_date: Date.now(),
+          date: Date.now(),
           count: 0,
           __typename: "Feed"
         }
