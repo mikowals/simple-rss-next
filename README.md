@@ -1,30 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+An RSS reader built to see how fast React applications can load and respond when hosted on Cloudflare pages. It is nearly instantaneous though that may be due to my using it frequently from one location and priming Cloudflare's servers.
 
-## Getting Started
+Currently running at https://simple-rss-next.pages.dev/articles.  
 
-First, run the development server:
+# Building and Serving
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Building and serving the website requires [npm](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).  A locally hosted version of the site can be started with the commands below.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    git clone https://github.com/mikowals/simple-rss-next.git
+    cd simple-rss-next
+    yarn run 
+    
+It can also be developed using Cloudflare Pages.  Forking this repository and then following [Pages' instructions](https://pages.cloudflare.com/) will lead to a web page that gets rebuilt every time your fork is updated.  I have set up CORS on the backend so you will likely see a blank page and will need a different GraphQL server to see results.
