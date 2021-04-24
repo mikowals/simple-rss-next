@@ -88,7 +88,6 @@ const Remove = memo(({_id}) => {
     update(cache, { data: { removeFeed } }) {
       let articlesToRemove = [];
       cache.modify({
-        id: "User:nullUser",
         fields: {
           feeds(existingFeedRefs, { readField }) {
             return existingFeedRefs.filter(
@@ -116,7 +115,7 @@ const Remove = memo(({_id}) => {
       optimisticResponse: {
         __typename: "Mutation",
         removeFeed: {
-          __typname: "Feed",
+          __typename: "Feed",
           _id: _id
         }
       }
@@ -134,7 +133,6 @@ const AddFeed = memo(() => {
   let [addHandler] = useMutation( ADD_FEED, {
     update(cache, { data: { addFeed } }) {
       cache.modify({
-        id: "User:nullUser",
         fields: {
           feeds(existingRefs, { readField }) {
             let newRef = cache.writeFragment({
