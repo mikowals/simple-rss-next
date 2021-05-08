@@ -126,7 +126,7 @@ const Remove = memo(({_id}) => {
 
 Remove.displayName = "Remove";
 
-const AddFeed = memo(() => {
+export const AddFeed = memo(() => {
   let [newURL, setNewURL] = useState("");
   let [addHandler] = useMutation( ADD_FEED, {
     update(cache, { data: { addFeed } }) {
