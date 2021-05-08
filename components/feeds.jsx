@@ -5,7 +5,6 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 import { USER_QUERY, FEEDS_QUERY } from '../api/query';
 import { ADD_FEED, REMOVE_FEED } from '../api/mutation';
 import { FaTimesCircle } from 'react-icons/fa';
-
 import orderBy from 'lodash.orderby';
 
 export const FeedsPageWithContainer = () => (
@@ -39,7 +38,6 @@ export const FeedsPage = () => {
   }
   return (
     <>
-      <AddFeed />
       <div className="row">
         <span className="pad-top-5 col-5"><h4><strong>Feed Title</strong></h4></span>
         <span className="col-3 text-right"><h4><strong>Count</strong></h4></span>
